@@ -56,21 +56,21 @@ namespace Gifter.Controllers
             return CreatedAtAction("Get", new { id = userProfile.Id }, userProfile);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")]//UPDATE
         public IActionResult Put(int id, UserProfile userProfile)
         {
             if (id != userProfile.Id)
             {
                 return BadRequest();
             }
-            _userProfileRepository.Update(userProfile);
+            _userProfileRepository.Update(userProfile);//Just Updated you won't get a return
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _userProfileRepository.Delete(id);
+            _userProfileRepository.Delete(id);///No Content Returned but UserProfile Deleted.
             return NoContent();
         }
 
